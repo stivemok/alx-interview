@@ -7,13 +7,13 @@ def backtrack(n, r, pos, neg, cols, board):
     """Back track to find the solution"""
     if r == n:
         res = []
-        for l in range (len(board)):
-            for k in range(len(board[1])):
-                if board[1][k] == 1:
-                    res.append([l, k])
+        for i in range(len(board)):
+            for k in range(len(board[i])):
+                if board[i][k] == 1:
+                    res.append([i, k])
         print(res)
         return
-    
+
     for c in range(n):
         if c in cols or (r + c) in pos or (r - c) in neg:
             continue
@@ -37,7 +37,6 @@ def nqueens(n):
     neg_diag = set()
     board = [[0] * n for i in range(n)]
     backtrack(0, n, cols, pos_diag, neg_diag, board)
-
 
     if __name__ == "__main__":
         n = sys.argv
